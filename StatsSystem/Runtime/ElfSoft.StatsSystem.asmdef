@@ -1,0 +1,17 @@
+{
+    "name": "ElfSoft.StatsSystem",
+    "rootNamespace": "ElfSoft.StatsSystem",
+    "references": [
+        "GUID:1a7cd63052288a945852bc3b4aa05ead",
+        "GUID:eec0964c48f6f4e40bc3ec2257ccf8c5"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

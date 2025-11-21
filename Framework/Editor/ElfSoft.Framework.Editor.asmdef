@@ -1,0 +1,21 @@
+{
+    "name": "ElfSoft.Framework.Editor",
+    "rootNamespace": "ElfSoft.Framework.Editor",
+    "references": [
+        "GUID:1a7cd63052288a945852bc3b4aa05ead",
+        "GUID:eec0964c48f6f4e40bc3ec2257ccf8c5",
+        "GUID:2e77701fe0ceda44fb763f03ee704c37",
+        "GUID:75469ad4d38634e559750d17036d5f7c"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

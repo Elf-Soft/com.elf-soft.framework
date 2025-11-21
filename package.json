@@ -1,0 +1,20 @@
+{
+  "name": "com.elf-soft.framework",
+  "version": "1.0.0",
+  "displayName": "Elf Soft Framework",
+  "description": "This is an unity framework package",
+  "unity": "6000.0",
+  "dependencies": {
+    "com.unity.addressables": "2.2.2",
+    "com.unity.localization": "1.5.0",
+    "com.unity.inputsystem": "1.11.0"
+  },
+  "keywords": [
+    "framework"
+  ],
+  "author": {
+    "name": "ElfSoft",
+    "email": "unity@example.com",
+    "url": "https://www.unity3d.com"
+  }
+}

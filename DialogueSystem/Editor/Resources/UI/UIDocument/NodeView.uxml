@@ -1,0 +1,23 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Packages/com.elf-soft.framework/DialogueSystem/Editor/Resources/UI/StyleSheet/NodeViewStyle.uss?fileID=7433441132597879392&amp;guid=f79fcc70dc1b06446a4035d6486b2505&amp;type=3#NodeViewStyle" />
+    <engine:VisualElement name="node-border">
+        <engine:VisualElement name="title">
+            <engine:VisualElement name="id-container">
+                <engine:Label text="[" />
+                <engine:Label text="ID" name="id-label" />
+                <engine:Label text="]" />
+            </engine:VisualElement>
+            <engine:Label text="Title" name="title-label" />
+            <engine:VisualElement name="collapse-button" />
+        </engine:VisualElement>
+        <engine:VisualElement name="contents">
+            <engine:VisualElement name="divider" class="horizontal" />
+            <engine:VisualElement name="top">
+                <engine:VisualElement name="input" />
+                <engine:VisualElement name="divider" class="vertical" />
+                <engine:VisualElement name="output" />
+            </engine:VisualElement>
+        </engine:VisualElement>
+    </engine:VisualElement>
+    <engine:VisualElement name="selection-border" picking-mode="Ignore" style="flex-grow: 1; top: 0;" />
+</engine:UXML>

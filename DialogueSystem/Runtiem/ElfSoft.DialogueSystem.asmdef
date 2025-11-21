@@ -1,0 +1,16 @@
+{
+    "name": "ElfSoft.DialogueSystem",
+    "rootNamespace": "ElfSoft.DialogueSystem",
+    "references": [
+        "GUID:1a7cd63052288a945852bc3b4aa05ead"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

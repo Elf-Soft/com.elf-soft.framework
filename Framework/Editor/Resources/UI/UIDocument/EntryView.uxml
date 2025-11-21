@@ -1,0 +1,6 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="item-row" class="unity-list-view__item" style="flex-direction: row; flex-grow: 1; justify-content: space-between; margin-left: 4px; flex-shrink: 0;">
+        <ui:Label text="id" display-tooltip-when-elided="true" name="id-label" style="margin-left: 4px; -unity-font-style: normal; -unity-text-align: middle-left; min-width: 120px;" />
+        <ui:Label display-tooltip-when-elided="true" name="name-label" style="justify-content: center; align-items: stretch; margin-left: 4px; -unity-font-style: normal; -unity-text-align: middle-left; flex-grow: 1;" />
+    </ui:VisualElement>
+</ui:UXML>

@@ -1,0 +1,22 @@
+:root {
+    flex-grow: 1;
+}
+
+.text-panel {
+    background-color: rgba(0, 0, 0, 0.78);
+    border-left-color: rgb(223, 222, 223);
+    border-right-color: rgb(223, 222, 223);
+    border-top-color: rgb(223, 222, 223);
+    border-bottom-color: rgb(223, 222, 223);
+    border-top-width: 4px;
+    border-right-width: 4px;
+    border-bottom-width: 4px;
+    border-left-width: 4px;
+}
+
+.text-panel .unity-label {
+    color: rgb(239, 239, 239);
+    -unity-font-style: bold;
+    font-size: 36px;
+    padding-left: 12px;
+}

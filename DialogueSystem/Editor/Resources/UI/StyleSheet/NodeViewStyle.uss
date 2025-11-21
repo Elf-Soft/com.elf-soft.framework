@@ -1,0 +1,135 @@
+#node-border {
+    background-color: rgb(56, 56, 56);
+    border-left-color: rgb(25, 25, 25);
+    border-right-color: rgb(25, 25, 25);
+    border-top-color: rgb(25, 25, 25);
+    border-bottom-color: rgb(25, 25, 25);
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+}
+
+#title {
+    flex-direction: row;
+    align-items: center;
+    padding-top: 4px;
+    padding-right: 4px;
+    padding-bottom: 4px;
+    padding-left: 4px;
+}
+
+#id-container {
+    flex-direction: row;
+}
+
+#title-label {
+    margin-left: 6px;
+}
+
+#top {
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#divider {
+    background-color: rgba(35, 35, 35, 0.8);
+    border-left-color: rgba(35, 35, 35, 0.8);
+    border-right-color: rgba(35, 35, 35, 0.8);
+    border-top-color: rgba(35, 35, 35, 0.8);
+    border-bottom-color: rgba(35, 35, 35, 0.8);
+}
+
+.horizontal {
+    border-bottom-width: 1px;
+    min-width: 96px;
+}
+
+.vertical {
+    border-right-width: 1px;
+    min-height: 32px;
+}
+
+#input {
+    background-color: rgba(63, 63, 63, 0.8);
+    padding-top: 4px;
+    padding-bottom: 4px;
+    align-items: flex-start;
+    flex-grow: 1;
+    padding-right: 4px;
+}
+
+#output {
+    background-color: rgba(46, 46, 46, 0.8);
+    padding-top: 4px;
+    padding-bottom: 4px;
+    max-height: 256px;
+    flex-grow: 1;
+    padding-left: 4px;
+}
+
+#selection-border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+:hover > #selection-border {
+    border-left-color: rgb(0, 84, 128);
+    border-right-color: rgb(0, 84, 128);
+    border-top-color: rgb(0, 84, 128);
+    border-bottom-color: rgb(0, 84, 128);
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+}
+
+:selected #selection-border {
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-left-color: rgb(0, 170, 255);
+    border-right-color: rgb(0, 170, 255);
+    border-top-color: rgb(0, 170, 255);
+    border-bottom-color: rgb(0, 170, 255);
+}
+
+:hover:selected > #selection-border {
+    border-left-color: rgb(128, 213, 255);
+    border-right-color: rgb(128, 213, 255);
+    border-top-color: rgb(128, 213, 255);
+    border-bottom-color: rgb(128, 213, 255);
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+}
+
+.action #title-label {
+    color: rgb(255, 255, 13);
+}
+
+.choice #title-label {
+    color: rgb(0, 158, 255);
+    -unity-font-style: bold;
+}
+
+.text #title-label {
+    color: rgb(50, 255, 13);
+    -unity-font-style: bold;
+}
+
+.node {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.error > #type {
+    background-color: rgba(255, 0, 0, 0.39);
+}

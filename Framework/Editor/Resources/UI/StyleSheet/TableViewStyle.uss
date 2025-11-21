@@ -1,0 +1,39 @@
+.unity-two-pane-split-view__dragline-anchor {
+    background-color: rgb(25, 25, 25);
+}
+
+.body-panel-header {
+    background-color: var(--unity-colors-toolbar-background);
+    border-bottom-color: var(--unity-colors-toolbar-border);
+    flex-direction: row;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 5px;
+    padding-right: 3px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    border-bottom-width: 1px;
+    height: 28px;
+    min-height: 28px;
+    font-size: 14px;
+    -unity-font-style: bold;
+    align-items: center;
+    justify-content: flex-start;
+    -unity-text-align: middle-left;
+}
+
+#add-button {
+    background-color: transparent;
+    border-width: 0;
+    align-items: auto;
+}
+
+#click-area {
+    min-height: 40px;
+}
+
+#body {
+    flex-grow: 1;
+}

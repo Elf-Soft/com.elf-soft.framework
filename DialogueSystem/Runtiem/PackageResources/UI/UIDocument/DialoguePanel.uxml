@@ -1,0 +1,20 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Packages/com.elf-soft.framework/DialogueSystem/Runtiem/PackageResources/UI/StyleSheet/DialoguePanelStyle.uss?fileID=7433441132597879392&amp;guid=29bc6df203f81864eb47a9d8a46f9990&amp;type=3#DialoguePanelStyle" />
+    <ui:VisualElement style="background-image: url(&quot;project://database/Assets/Art/UI/Texture/Screenshot%202024-11-06%2016-16-03.png?fileID=2800000&amp;guid=63ec50f158a3edf4b85c851cfd57102d&amp;type=3#Screenshot 2024-11-06 16-16-03&quot;); position: absolute; width: 100%; height: 100%; display: flex;" />
+    <ui:VisualElement style="justify-content: flex-end; align-self: center; flex-grow: 1;">
+        <ui:VisualElement style="margin-bottom: 4px; align-items: flex-end; flex-direction: row;">
+            <ui:VisualElement class="text-panel">
+                <ui:Label text="Name" name="name-label" style="-unity-text-align: upper-center; min-width: 256px; min-height: 56px;" />
+            </ui:VisualElement>
+            <ui:VisualElement style="flex-grow: 1; align-items: flex-end;">
+                <ui:VisualElement name="option-container" usage-hints="GroupTransform" class="text-panel" style="padding-left: 12px; padding-right: 12px; padding-top: 8px; padding-bottom: 8px;">
+                    <ui:Label text="对话" style="min-height: 56px; min-width: 256px; text-overflow: ellipsis; overflow: hidden;" />
+                    <ui:Label text="交易" style="min-height: 56px; min-width: 256px;" />
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement class="text-panel" style="margin-bottom: 32px;">
+            <ui:Label text="Welcome" name="text-label" style="width: 1060px; height: 208px;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
