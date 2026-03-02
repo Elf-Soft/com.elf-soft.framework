@@ -1,0 +1,16 @@
+.item-info-panel {
+    width: 460px;
+    min-height: 360px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.item-info-panel__text-element {
+    padding-left: 30px;
+    -unity-text-align: upper-left;
+}
+
+.parameter-bar {
+    background-image: var(--bar-background-white);
+    -unity-background-image-tint-color: rgba(255, 255, 255, 0.04);
+}

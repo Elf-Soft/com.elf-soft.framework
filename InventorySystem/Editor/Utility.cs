@@ -24,7 +24,7 @@ namespace ElfSoft.InventorySystem.Editor
             foreach (var guid in itemDatas)
             {
                 var asset = AssetDatabase.LoadAssetAtPath<ItemInfoData>(AssetDatabase.GUIDToAssetPath(guid));
-                foreach (var i in asset.Infos)
+                foreach (var i in asset.Entries)
                 {
                     itemInfoDic.Add(i.Id, i);
                     infoContentDic.Add(i.Id, GetInfoContent(i));

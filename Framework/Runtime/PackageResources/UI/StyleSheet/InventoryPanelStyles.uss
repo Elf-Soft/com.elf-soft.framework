@@ -1,0 +1,20 @@
+.inventory-panel {
+    width: 500px;
+}
+
+.inventory-panel__text-element {
+    flex-grow: 1;
+    -unity-text-align: upper-center;
+}
+
+.inventory-panel__tooltip-text-element {
+    flex-grow: 1;
+    font-size: var(--text-size-small);
+    padding-left: 12px;
+}
+
+.cursor-element {
+    position: absolute;
+    top: 16px;
+    left: -10px;
+}

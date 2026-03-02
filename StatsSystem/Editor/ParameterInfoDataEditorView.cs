@@ -10,35 +10,36 @@ using UnityEngine.UIElements;
 
 namespace ElfSoft.StatsSystem.Editor
 {
-    internal sealed class ParameterInfoDataEditorView : TableView<ParameterInfoData>
+    internal sealed class ParameterInfoDataEditorView : GameDataView<ParameterInfoData>
     {
         public TablePanelController TableController { get; private set; }
+        private static readonly string entries = "entries";
 
 
         public ParameterInfoDataEditorView()
         {
             TableController = new(this.Q<VisualElement>("left-panel"), nameof(ParameterInfo))
             {
-                GetItemSource = () => Asset != null ? Asset.Infos as IList : null,
+                GetItemSource = () => Asset != null ? Asset.Entries as IList : null,
                 BindItem = (elem, index) =>
                 {
-                    var e = elem as EntryView;
-                    var idProperty = So.FindProperty($"infos.Array.data[{index}].id");
-                    var nameProperty = So.FindProperty($"infos.Array.data[{index}].abbr");
+                    var e = elem as GameDataEntryBar;
+                    var idProperty = So.FindProperty($"{entries}.Array.data[{index}].id");
+                    var nameProperty = So.FindProperty($"{entries}.Array.data[{index}].abbr");
                     e.BindProperty(idProperty, nameProperty);
                 },
-                AddItemToSource = () => So.AddArrayElement("infos", p =>
+                AddItemToSource = () => So.AddArrayElement(entries, p =>
                 {
-                    p.FindPropertyRelative("id").intValue = So.FindProperty("infos").arraySize - 1;
+                    p.FindPropertyRelative("id").intValue = So.FindProperty(entries).arraySize - 1;
                     p.FindPropertyRelative("abbr").stringValue = "new item";
                 }),
-                RemoveItemFromSource = (index) => So.DeleteArrayElementAtIndex("infos", index),
+                RemoveItemFromSource = (index) => So.DeleteArrayElementAtIndex(entries, index),
                 CheckAsset = CheckAsset
 
             };
 
             var PropertiesPanel = this.Q<VisualElement>("right-panel").Q<VisualElement>("body");
-            TableController.SelectedIndicesChanged += index => EditorUtils.ShowProperties(PropertiesPanel, So.FindProperty($"infos.Array.data[{index}]"));
+            TableController.SelectedIndicesChanged += index => EditorUtils.ShowProperties(PropertiesPanel, So.FindProperty($"{entries}.Array.data[{index}]"));
 
             Menu.menu.AppendAction("Sort By Id", SortById, CheckAsset);
             Menu.menu.AppendAction("Copy To text", CopyText, CheckAsset);
@@ -53,7 +54,7 @@ namespace ElfSoft.StatsSystem.Editor
 
         private void SortById(DropdownMenuAction a)
         {
-            (Asset.Infos as List<ParameterInfo>).Sort((x, y) => x.Id.CompareTo(y.Id));
+            (Asset.Entries as List<ParameterInfo>).Sort((x, y) => x.Id.CompareTo(y.Id));
             UpdateView();
         }
 
@@ -63,7 +64,7 @@ namespace ElfSoft.StatsSystem.Editor
         private string InfosToEnumText()
         {
             StringBuilder sb = new();
-            foreach (var data in Asset.Infos)
+            foreach (var data in Asset.Entries)
             {
                 var words = data.Abbr.Split(' ');
                 string newWord = string.Empty;
@@ -89,7 +90,7 @@ namespace ElfSoft.StatsSystem.Editor
             StringBuilder sb = new();
             sb.AppendLine("namespace ElfSoft.StatsSystem");
             sb.AppendLine("{");
-            sb.AppendLine("\tpublic enum ParameterEnum");
+            sb.AppendLine("\tpublic enum ParameterType");
             sb.AppendLine("\t{");
             for (int i = 0; i < lines.Length; i++)
             {
@@ -99,7 +100,7 @@ namespace ElfSoft.StatsSystem.Editor
             sb.AppendLine("}");
 
             var defDirectory = @$"Packages/com.elf-soft.framework/StatsSystem/Runtime/";
-            var path = EditorUtility.SaveFilePanel("Select directory", defDirectory, "ParameterEnum", "cs");
+            var path = EditorUtility.SaveFilePanel("Select directory", defDirectory, "ParameterType", "cs");
             if (path.Length > 0)
             {
                 File.WriteAllText(path, sb.ToString());

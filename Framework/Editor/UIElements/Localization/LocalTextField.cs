@@ -6,6 +6,7 @@ using UnityEditor.Search;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.Localization;
+using UnityEngine.Localization.Settings;
 using UnityEngine.Localization.Tables;
 using UnityEngine.Search;
 using UnityEngine.UIElements;
@@ -69,6 +70,7 @@ namespace ElfSoft.Framework.Editor.UIElements
                 {
                     Undo.RecordObject(result.entry.Table, "Change string table entry value");
                     result.entry.Value = e.newValue;
+                    EditorUtility.SetDirty(result.table);
                 }
             });
             Foldout.Add(textField);
@@ -77,7 +79,7 @@ namespace ElfSoft.Framework.Editor.UIElements
             Dropdown.RegisterValueChangedCallback(e =>
             {
                 if (e.newValue == e.previousValue) return;
-                Utils.SplitLocalText(e.newValue, out tableName, out entryKey);
+                LocalizationEx.SplitLocalText(e.newValue, out tableName, out entryKey);
                 if (string.IsNullOrEmpty(e.newValue)) Dropdown.SetValueWithoutNotify(Ex.NoTableEntrySelected);
                 UpdateView();
             });
@@ -117,7 +119,7 @@ namespace ElfSoft.Framework.Editor.UIElements
 
         public void BindString(string value)
         {
-            Utils.SplitLocalText(value, out tableName, out entryKey);
+            LocalizationEx.SplitLocalText(value, out tableName, out entryKey);
             Dropdown.SetValueWithoutNotify(value);
             UpdateView();
         }

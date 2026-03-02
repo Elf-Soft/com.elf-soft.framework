@@ -1,0 +1,36 @@
+.page-bar {
+    flex-direction: row;
+}
+
+.page-bar__button__icon {
+    -unity-background-scale-mode: scale-to-fit;
+    width: 40px;
+    flex-grow: 1;
+    background-image: var(--arrow-texture);
+}
+
+.page-bar__button--next > .page-bar__button__icon {
+    scale: -1 1;
+}
+
+.page-bar__text-element {
+    -unity-text-align: middle-left;
+    font-size: var(--text-size-small, 24px);
+}
+
+.page-bar__text-element--page {
+    -unity-text-align: middle-right;
+    width: 40px;
+}
+
+.page-bar__text-element--max-page {
+    width: 40px;
+}
+
+.page-bar__button:hover {
+    scale: 1.2 1.2;
+}
+
+.page-bar__button:active {
+    scale: 1 1;
+}

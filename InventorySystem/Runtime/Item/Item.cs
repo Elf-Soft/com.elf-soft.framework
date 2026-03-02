@@ -8,8 +8,10 @@ namespace ElfSoft.InventorySystem
     {
         [SerializeField] private int id;
         public int Id => id;
-        public ItemInfo Info => default/*ItemDataManager.Instance.DataDic[Id]*/;
+        public ItemInfo Info => ItemInfoDataBase.Instance.GetItemInfo(id);
         //public static explicit operator Item(int id) => ItemDataManager.Instance.GetData(id);
 
     }
+
+
 }

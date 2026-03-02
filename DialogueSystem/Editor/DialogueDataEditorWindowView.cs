@@ -4,7 +4,7 @@ using UnityEngine.UIElements;
 
 namespace ElfSoft.DialogueSystem.Editor
 {
-    public class DialogueDataEditorWindowView : TableView<DialogueData>
+    public class DialogueDataEditorWindowView : GameDataView<DialogueData>
     {
         public DialogueGraphView GraphView { get; private set; }
         public VisualElement PropertiesPanel { get; private set; }

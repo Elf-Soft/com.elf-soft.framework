@@ -1,8 +1,10 @@
 using ElfSoft.Framework;
+using System;
 using UnityEngine;
 
 namespace ElfSoft.DialogueSystem
 {
+    [Serializable]
     [TypeMenu(0)]
     public sealed class NodeText : NodeAction
     {

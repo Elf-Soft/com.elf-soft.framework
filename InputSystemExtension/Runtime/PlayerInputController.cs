@@ -1,22 +1,33 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace ElfSoft.InputSystemExtension
 {
+    [DefaultExecutionOrder(-10)]
     [RequireComponent(typeof(PlayerInput))]
-    public class PlayerInputController : MonoBehaviour
+    public sealed class PlayerInputController : MonoBehaviour
     {
-        [SerializeField] protected BindingSettingData setting;
-        protected Dictionary<int, InputAction> actionDic = new();
-        public PlayerInput PlayerInput { get; protected set; }
+        [SerializeField] private BindingSettingData setting;
+        [SerializeField] private Location saveLocation;
+        [SerializeField] private string saveName = "bindings";
+        [SerializeField] private bool instance;
+        private enum Location
+        {
+            PersistentDataPath, PlayerPrefs
+        }
+        private string DataPath => Path.GetFullPath(Path.Combine(Application.persistentDataPath, saveName, ".json"));
+        private readonly Dictionary<int, InputAction> actionDic = new();
+        public PlayerInput PlayerInput { get; private set; }
         public int ActiveMapIndex { get; set; }
         public BindingSettingGroup ActiveSettingMap => setting.Groups[ActiveMapIndex];
         public InputAction this[int index] => actionDic[index];
+        public static PlayerInputController Instance { get; private set; }
 
 
-        protected virtual void Awake()
+        private void Awake()
         {
             PlayerInput = GetComponent<PlayerInput>();
             foreach (var map in PlayerInput.actions.actionMaps)
@@ -26,6 +37,7 @@ namespace ElfSoft.InputSystemExtension
                     actionDic.Add(Animator.StringToHash(a.name), a);
                 }
             }
+            if (instance) Instance = this;
         }
 
         private void Start()
@@ -39,19 +51,18 @@ namespace ElfSoft.InputSystemExtension
             return setting != null;
         }
 
-        public string GetBindingDisplayString(string bindingName)
-        {
-            TryGetSetting(bindingName, out var setting);
-            var action = PlayerInput.actions.FindAction(setting.Reference.action.id);
-            return action.GetBindingDisplayString(setting.BindingIndex);
-        }
+        //public string GetBindingDisplayString(string bindingName)
+        //{
+        //    TryGetSetting(bindingName, out var setting);
+        //    var action = PlayerInput.actions.FindAction(setting.Reference.action.id);
+        //    return action.GetBindingDisplayString(setting.BindingIndex);
+        //}
 
         public void StartInteractiveRebind(string bindingName)
         {
             TryGetSetting(bindingName, out var setting);
             var action = PlayerInput.actions.FindAction(setting.Reference.action.id);
             var bindingIndex = setting.BindingIndex;
-            if (bindingIndex < 0) return;
 
             //禁用复合绑定
             if (action.bindings[bindingIndex].isComposite) throw new InvalidOperationException("禁用复合绑定");
@@ -94,15 +105,18 @@ namespace ElfSoft.InputSystemExtension
             }
         }
 
-        public virtual void SaveData()
+        public void SaveData()
         {
             var data = PlayerInput.actions.SaveBindingOverridesAsJson();
-            PlayerPrefs.SetString(nameof(BindingSettingData), data);
+            if (saveLocation == Location.PlayerPrefs) PlayerPrefs.SetString(saveName, data);
+            else File.WriteAllText(DataPath, data);
         }
 
-        public virtual void LoadData()
+        public void LoadData()
         {
-            var data = PlayerPrefs.GetString(nameof(BindingSettingData));
+            string data = string.Empty;
+            if (saveLocation == Location.PlayerPrefs) data = PlayerPrefs.GetString(saveName);
+            else if (File.Exists(DataPath)) data = File.ReadAllText(DataPath);
             if (string.IsNullOrEmpty(data)) return;
             PlayerInput.actions.LoadBindingOverridesFromJson(data);
         }

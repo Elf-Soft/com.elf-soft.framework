@@ -1,0 +1,31 @@
+.item-slot-bar {
+    flex-direction: row;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    height: 48px;
+    padding-right: 16px;
+    padding-left: 32px;
+}
+
+.item-slot-bar__icon {
+    margin-right: 4px;
+    width: 48px;
+    margin-left: 4px;
+}
+
+.item-slot-bar__name-label {
+    flex-grow: 1;
+}
+
+.item-slot-bar.active {
+    background-color: var(--active-background-color);
+}
+
+.anchor {
+    position: absolute;
+    height: 100%;
+    width: 48px;
+    left: -10px;
+}
+
+

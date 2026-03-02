@@ -11,7 +11,7 @@ namespace ElfSoft.Framework.Editor.UIElements
         {
             if (property.propertyType == SerializedPropertyType.String)
             {
-                
+
                 LocalTextField field = new();
                 var attr = attribute as LocalTextAttribute;
                 if (attr.MinHeight != default) field.TextElementMinHeight = attr.MinHeight;

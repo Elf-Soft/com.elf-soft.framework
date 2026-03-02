@@ -1,0 +1,13 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Packages/com.elf-soft.framework/Framework/Runtime/PackageResources/UI/StyleSheet/PanelStyles.uss?fileID=7433441132597879392&amp;guid=ea51af49bddb0194e87a810f130fab93&amp;type=3#PanelStyles"/>
+    <Style src="project://database/Packages/com.elf-soft.framework/Framework/Runtime/PackageResources/UI/StyleSheet/InventoryPanelStyles.uss?fileID=7433441132597879392&amp;guid=131a121513c685a4a918e313e52f7d46&amp;type=3#InventoryPanelStyles"/>
+    <Style src="project://database/Packages/com.elf-soft.framework/Framework/Runtime/PackageResources/UI/StyleSheet/ItemSlotBarStyles.uss?fileID=7433441132597879392&amp;guid=5365cb688b861934e8b74d28ec85ad14&amp;type=3#ItemSlotBarStyles"/>
+    <ui:VisualElement class="panel-header">
+        <ui:TextElement text="物品" class="inventory-panel__text-element"/>
+    </ui:VisualElement>
+    <ui:VisualElement class="panel-container inventory-panel-container"/>
+    <ui:VisualElement class="panel-footer">
+        <ui:TextElement text="选择装备" class="inventory-panel__tooltip-text-element"/>
+        <ElfSoft.Framework.PageBar/>
+    </ui:VisualElement>
+</ui:UXML>

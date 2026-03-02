@@ -11,6 +11,7 @@ namespace ElfSoft.InventorySystem.Editor
     public class ItemInfoSearchProvider : SearchProvider
     {
         private QueryEngine<ItemInfo> QueryEngine { get; } = new();
+        private static readonly Texture2D noneIcon = EditorGUIUtility.FindTexture("Search Icon");
 
 
         public ItemInfoSearchProvider() : base(nameof(Item).ToLower())
@@ -20,7 +21,7 @@ namespace ElfSoft.InventorySystem.Editor
             fetchThumbnail = (si, sc) =>
             {
                 var icon = (si.data as ItemInfo).Icon?.editorAsset as Sprite;
-                return icon != null ? icon.texture : EditorGUIUtility.FindTexture("Search Icon");
+                return icon != null ? icon.texture : noneIcon;
             };
 
             //获取搜索物品的可迭代文本,用于根据搜索输入栏文本(非过滤器)筛选数据集
@@ -50,8 +51,7 @@ namespace ElfSoft.InventorySystem.Editor
             {
                 var id = info.Id.ToString();
                 var name = LocalizationEditorEx.GetStringTableEntryLocalizedValue(FieldName.ItemName, id);
-                var des = LocalizationEditorEx.GetStringTableEntryLocalizedValue(FieldName.ItemDescription, id);
-                var description = string.IsNullOrEmpty(des) ? name : $"{name} - {des}";
+                var description = LocalizationEditorEx.GetStringTableEntryLocalizedValue(FieldName.ItemDescription, id);
                 //Texture2D preview = AssetPreview.GetAssetPreview(data);
                 yield return provider.CreateItem(sc, id, name, description, null, info);
             }
@@ -79,8 +79,8 @@ namespace ElfSoft.InventorySystem.Editor
             if (!options.flags.HasAny(SearchPropositionFlags.QueryBuilder) || context.filterId != filterId)
                 yield break;
 
-            yield return new SearchProposition(label: nameof(ItemInfo.Id).ToLower(), $"{nameof(ItemInfo.Id).ToLower()}=0", "Filter by Item ID.");
-            yield return new SearchProposition(label: nameof(ItemInfo.MaxStack).ToLower(), $"{nameof(ItemInfo.MaxStack).ToLower()}=0", "Filter by Item MaxStack.");
+            yield return new SearchProposition(label: nameof(ItemInfo.Id).ToLower(), $"{nameof(ItemInfo.Id).ToLower()}=0", "Filter by item ID.");
+            yield return new SearchProposition(label: nameof(ItemInfo.MaxStack).ToLower(), $"{nameof(ItemInfo.MaxStack).ToLower()}=0", "Filter by item MaxStack.");
 
             //yield return new SearchProposition("Translated", "Any", $"tr:\"some value\"",
             //    "Filter by Table localized value.");

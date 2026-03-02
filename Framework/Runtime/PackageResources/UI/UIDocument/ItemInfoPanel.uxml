@@ -1,0 +1,10 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Packages/com.elf-soft.framework/Framework/Runtime/PackageResources/UI/StyleSheet/ItemInfoPanelStyles.uss?fileID=7433441132597879392&amp;guid=fa1be1f2202ab93488ee5a597a591527&amp;type=3#ItemInfoPanelStyles"/>
+    <ui:TextElement class="item-info-panel__text-element" style="flex-grow: 1;"/>
+    <ui:VisualElement class="parameter-bar" style="font-size: 25px;">
+        <ui:VisualElement style="flex-direction: row; padding-right: 36px; padding-left: 113px; margin-top: 4px; margin-bottom: 4px; height: 40px;">
+            <ui:TextElement text="攻击力"/>
+            <ui:TextElement text="206" style="-unity-text-align: middle-right; flex-grow: 1;"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

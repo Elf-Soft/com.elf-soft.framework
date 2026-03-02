@@ -1,0 +1,28 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Packages/com.elf-soft.framework/Framework/Runtime/PackageResources/UI/StyleSheet/PanelStyles.uss?fileID=7433441132597879392&amp;guid=ea51af49bddb0194e87a810f130fab93&amp;type=3#PanelStyles"/>
+    <Style src="project://database/Packages/com.elf-soft.framework/Framework/Runtime/PackageResources/UI/StyleSheet/ItemInfoPanelStyles.uss?fileID=7433441132597879392&amp;guid=fa1be1f2202ab93488ee5a597a591527&amp;type=3#ItemInfoPanelStyles"/>
+    <Style src="project://database/Packages/com.elf-soft.framework/Framework/Runtime/PackageResources/UI/StyleSheet/ItemSlotBarStyles.uss?fileID=7433441132597879392&amp;guid=5365cb688b861934e8b74d28ec85ad14&amp;type=3#ItemSlotBarStyles"/>
+    <Style src="project://database/Packages/com.elf-soft.framework/Framework/Runtime/PackageResources/UI/StyleSheet/InventoryPanelStyles.uss?fileID=7433441132597879392&amp;guid=131a121513c685a4a918e313e52f7d46&amp;type=3#InventoryPanelStyles"/>
+    <ui:VisualElement style="background-image: url(&quot;project://database/Assets/Editor/01c5c6f2f2a91e3a9d77c8cd3a6ca78f395973070.png?fileID=2800000&amp;guid=ba22f7ede820b59458aa02dc80bfc9f2&amp;type=3#01c5c6f2f2a91e3a9d77c8cd3a6ca78f395973070&quot;); display: none; position: absolute; width: 100%; height: 100%;"/>
+    <ui:VisualElement style="flex-grow: 1; flex-direction: row; margin-top: 50px; margin-left: 100px;">
+        <ui:VisualElement>
+            <ElfSoft.InventorySystem.InventoryPanel>
+                <ElfSoft.InventorySystem.ItemSlotBar name-text="露比斯之剑"/>
+                <ElfSoft.InventorySystem.ItemSlotBar name-text="霸王之斧"/>
+                <ElfSoft.InventorySystem.ItemSlotBar name-text="破坏铁球"/>
+                <ElfSoft.InventorySystem.ItemSlotBar/>
+                <ElfSoft.InventorySystem.ItemSlotBar/>
+                <ElfSoft.InventorySystem.ItemSlotBar/>
+                <ElfSoft.InventorySystem.ItemSlotBar/>
+                <ElfSoft.InventorySystem.ItemSlotBar/>
+                <ElfSoft.InventorySystem.ItemSlotBar/>
+                <ElfSoft.InventorySystem.ItemSlotBar name-text="神鸟之杖"/>
+            </ElfSoft.InventorySystem.InventoryPanel>
+        </ui:VisualElement>
+        <ui:VisualElement>
+            <ElfSoft.InventorySystem.ItemInfoPanel/>
+        </ui:VisualElement>
+        <ui:VisualElement name="right-panel" style="border-left-color: rgb(171, 167, 168); border-right-color: rgb(171, 167, 168); border-top-color: rgb(171, 167, 168); border-bottom-color: rgb(171, 167, 168); border-top-width: 4px; border-right-width: 4px; border-bottom-width: 4px; border-left-width: 4px; background-color: rgba(192, 0, 255, 0.61); border-top-left-radius: 16px; border-top-right-radius: 16px; border-bottom-right-radius: 16px; border-bottom-left-radius: 16px; display: none; flex-grow: 1;"/>
+    </ui:VisualElement>
+    <ui:VisualElement style="background-image: url(&quot;project://database/Assets/Editor/Screenshot%202024-11-06%2016-22-07.png?fileID=2800000&amp;guid=958c7e19dd2d1e4468f40eed9368ffca&amp;type=3#Screenshot 2024-11-06 16-22-07&quot;); display: none; position: absolute; width: 100%; height: 100%; opacity: 0.5;"/>
+</ui:UXML>

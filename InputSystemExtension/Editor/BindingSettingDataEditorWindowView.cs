@@ -12,7 +12,7 @@ using UnityEngine.UIElements;
 namespace ElfSoft.InputSystemExtension.Editor
 {
 
-    public class BindingSettingDataEditorWindowView : TableView<BindingSettingData>
+    public class BindingSettingDataEditorWindowView : GameDataView<BindingSettingData>
     {
         public TablePanelController DataController { get; private set; }
         public TablePanelController GroupController { get; private set; }
@@ -26,7 +26,7 @@ namespace ElfSoft.InputSystemExtension.Editor
                 GetItemSource = () => Asset != null ? Asset.Groups as IList : null,
                 BindItem = (elem, index) =>
                 {
-                    var e = elem as EntryView;
+                    var e = elem as GameDataEntryBar;
                     e.IdLabel.text = index.ToString();
                     e.NameLabel.BindProperty(So.FindProperty($"groups.Array.data[{index}].name"));
                 },

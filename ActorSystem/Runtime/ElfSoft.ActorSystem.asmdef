@@ -1,0 +1,21 @@
+{
+    "name": "ElfSoft.ActorSystem",
+    "rootNamespace": "ElfSoft.ActorSystem",
+    "references": [
+        "GUID:1a7cd63052288a945852bc3b4aa05ead",
+        "GUID:f204afa0ca6b05044970cc1e4b2166c4",
+        "GUID:36de6ffb2922fc54ea0b92648b0ac954",
+        "GUID:f51ebe6a0ceec4240a699833d6309b23",
+        "GUID:eec0964c48f6f4e40bc3ec2257ccf8c5",
+        "GUID:75469ad4d38634e559750d17036d5f7c"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

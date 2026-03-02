@@ -12,7 +12,6 @@ namespace ElfSoft.InventorySystem.Editor
     public class ItemField : BaseField<Item>
     {
         #region Field
-        private readonly Label nameLabel;
         private readonly Label textLabel;
         private readonly VisualElement selector;
         private readonly Image icon;
@@ -35,15 +34,14 @@ namespace ElfSoft.InventorySystem.Editor
         #endregion
 
 
-        public ItemField() : base(nameof(ItemField), null)
+        public ItemField() : base(null, null)
         {
             AddToClassList(alignedFieldUssClassName);
-            nameLabel = this.Q<Label>(null, labelUssClassName);
-            var content = this.Q<VisualElement>(null, inputUssClassName);
-            content.AddToClassList(objectInputUssClassName);
+            var input = this.Q<VisualElement>(classes: inputUssClassName);
+            input.AddToClassList(objectInputUssClassName);
             VisualElement display = new();
             display.AddToClassList(objectObjectUssClassName);
-            content.Add(display);
+            input.Add(display);
 
             icon = new();
             icon.AddToClassList(displayIconUssClassName);
@@ -56,7 +54,7 @@ namespace ElfSoft.InventorySystem.Editor
 
             selector = new();
             selector.AddToClassList(objectSelectorUssClassName);
-            content.Add(selector);
+            input.Add(selector);
 
             Clickable clickable = new(ShowPicker);
             selector.AddManipulator(clickable);
@@ -67,7 +65,7 @@ namespace ElfSoft.InventorySystem.Editor
                     a => PropertyValue < 0 ? DropdownMenuAction.Status.Disabled : DropdownMenuAction.Status.Normal);
                 evt.menu.AppendAction("Copy", a => copybuffer = PropertyValue,
                     a => PropertyValue < 0 ? DropdownMenuAction.Status.Disabled : DropdownMenuAction.Status.Normal);
-                evt.menu.AppendAction("Paste", a => ApplyPropertyValue(PropertyValue),
+                evt.menu.AppendAction("Paste", a => ApplyPropertyValue(copybuffer),
                 a => copybuffer < 0 ? DropdownMenuAction.Status.Disabled : DropdownMenuAction.Status.Normal);
                 evt.menu.AppendSeparator();
                 evt.menu.AppendAction("Copy Property Path", a => GUIUtility.systemCopyBuffer = property.propertyPath);
@@ -94,7 +92,7 @@ namespace ElfSoft.InventorySystem.Editor
         public void BindProperty(SerializedProperty property)
         {
             this.property = property;
-            nameLabel.text = property.displayName;
+            label = property.displayName;
             UpdateView();
         }
 
@@ -131,24 +129,18 @@ namespace ElfSoft.InventorySystem.Editor
             if (property == null) return;
             property.FindPropertyRelative(FieldName.id).intValue = value;
             property.serializedObject.ApplyModifiedProperties();
+            UpdateView();
         }
 
         #region Search
         private void ShowPicker()
         {
-            searchViewState.trackingHandler = TrackingHandler;
-            searchViewState.selectHandler = SelectHandler;
+            searchViewState.trackingHandler = si => ShowItemInfo(si.data as ItemInfo);
+            searchViewState.selectHandler = (si, selectionIsNull) =>
+            {
+                ApplyPropertyValue(selectionIsNull || si.data is not ItemInfo info ? -1 : info.Id);
+            };
             SearchService.ShowPicker(searchViewState);
-        }
-
-        private void TrackingHandler(SearchItem si)
-        {
-            ShowItemInfo(si.data as ItemInfo);
-        }
-
-        private void SelectHandler(SearchItem si, bool arg2)
-        {
-            ApplyPropertyValue(si.data is ItemInfo info ? info.Id : -1);
         }
 
         private static SearchViewState GetSearchViewState()

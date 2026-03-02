@@ -1,8 +1,6 @@
 ﻿using ElfSoft.Framework;
 using System.Collections;
-using UnityEditor;
 using UnityEditor.Experimental.GraphView;
-using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace ElfSoft.DialogueSystem.Editor

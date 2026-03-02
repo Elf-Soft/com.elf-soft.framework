@@ -9,16 +9,11 @@ namespace ElfSoft.StatsSystem
     {
         [SerializeField] private int id;
         [SerializeField] private string abbr;
+        [SerializeField] private bool percent;
         [SerializeField, LocalText] private string name;
         public int Id => id;
         public string Abbr => abbr;
-        public string Name
-        {
-            get
-            {
-                Utils.SplitLocalText(name, out var tableName, out var entryKey);
-                return Utils.GetLocalizedString(tableName, entryKey);
-            }
-        }
+        public bool Percent => percent;
+        public string Name => LocalizationEx.GetLocalizedString(name);
     }
 }

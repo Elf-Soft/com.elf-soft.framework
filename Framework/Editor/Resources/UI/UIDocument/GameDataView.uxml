@@ -1,0 +1,39 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Packages/com.elf-soft.framework/Framework/Editor/Resources/UI/StyleSheet/GameDataViewStyles.uss?fileID=7433441132597879392&amp;guid=cb2eb7d557d6a324c9dd31491cc0530b&amp;type=3#GameDataViewStyles"/>
+    <engine:VisualElement name="control-schemes-toolbar-container">
+        <editor:Toolbar>
+            <engine:VisualElement style="flex-direction: row; flex-grow: 1;">
+                <editor:ToolbarMenu display-tooltip-when-elided="true" text="Menu" name="menu" style="width: 64px;"/>
+                <editor:ToolbarSpacer/>
+            </engine:VisualElement>
+            <engine:VisualElement style="display: none;">
+                <editor:ToolbarSearchField focusable="true" name="search-field" class="search-field"/>
+            </engine:VisualElement>
+            <engine:VisualElement name="save-asset-toolbar-container" style="flex-direction: row; justify-content: flex-end;">
+                <editor:ObjectField name="ObjectField" allow-scene-objects="false"/>
+            </engine:VisualElement>
+        </editor:Toolbar>
+    </engine:VisualElement>
+    <engine:TwoPaneSplitView fixed-pane-initial-dimension="300">
+        <engine:VisualElement name="left-panel" style="min-width: 150px;">
+            <engine:VisualElement name="header" class="body-panel-header">
+                <engine:Label text="Entry" display-tooltip-when-elided="true" name="title-label" style="flex-grow: 1;"/>
+                <engine:Button text="+" display-tooltip-when-elided="true" name="add-button"/>
+            </engine:VisualElement>
+            <engine:VisualElement name="body">
+                <engine:ListView focusable="true" reorderable="true"/>
+            </engine:VisualElement>
+            <engine:VisualElement name="click-area"/>
+        </engine:VisualElement>
+        <engine:VisualElement name="right-panel" class="body-panel-container" style="flex-grow: 1;">
+            <engine:VisualElement name="header" class="body-panel-header" style="justify-content: space-between;">
+                <engine:Label text="Properties" display-tooltip-when-elided="true" name="title-label"/>
+                <engine:Button text="+" display-tooltip-when-elided="true" name="add-button" style="display: none;"/>
+            </engine:VisualElement>
+            <engine:VisualElement name="body">
+                <engine:ListView focusable="true" reorderable="true" style="display: none;"/>
+            </engine:VisualElement>
+            <engine:VisualElement name="click-area"/>
+        </engine:VisualElement>
+    </engine:TwoPaneSplitView>
+</engine:UXML>

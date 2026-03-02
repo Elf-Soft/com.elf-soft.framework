@@ -1,7 +1,6 @@
 ﻿using ElfSoft.Framework.Editor;
 using ElfSoft.Framework.Editor.UIElements;
 using UnityEditor;
-using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace ElfSoft.DialogueSystem.Editor

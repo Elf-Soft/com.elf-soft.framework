@@ -1,9 +1,11 @@
 using ElfSoft.Framework;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace ElfSoft.DialogueSystem
 {
+    [Serializable]
     [TypeMenu(1, name: "Choice")]
     public sealed class NodeChoice : Node
     {
@@ -15,7 +17,7 @@ namespace ElfSoft.DialogueSystem
 
         public override void OnEnter(IView view)
         {
-        	view.ShowText(Text);
+            view.ShowText(Text);
             view.ShowChoices(choices);
         }
 

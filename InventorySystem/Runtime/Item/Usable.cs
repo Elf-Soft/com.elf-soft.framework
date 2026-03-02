@@ -1,15 +1,10 @@
-using UnityEngine;
-/*
+using ElfSoft.Framework;
+
 namespace ElfSoft.InventorySystem
 {
-    public abstract class Usable : ScriptableObject
+    public abstract class Usable
     {
-        public virtual void OnGet() { }
-
-        public virtual void OnUse() { }
-
-        public virtual void OnLose() { }
+        public virtual void OnUse(IModuleObject<Inventory<ItemSlot>> obj) { }
 
     }
 }
-*/

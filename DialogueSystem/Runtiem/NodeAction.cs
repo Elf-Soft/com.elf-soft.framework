@@ -1,8 +1,10 @@
 ﻿using ElfSoft.Framework;
+using System;
 using UnityEngine;
 
 namespace ElfSoft.DialogueSystem
 {
+    [Serializable]
     [TypeMenu(2, path: "Action/")]
     public abstract class NodeAction : Node
     {

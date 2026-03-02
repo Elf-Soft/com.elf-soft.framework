@@ -4,13 +4,12 @@ using ElfSoft.Framework.Editor.UIElements;
 using UnityEditor;
 using UnityEditor.Localization;
 using UnityEditor.UIElements;
-using UnityEngine;
 using UnityEngine.Localization.Tables;
 using UnityEngine.UIElements;
 
 namespace ElfSoft.InventorySystem.Editor
 {
-    public class ItemInfoView : EntryView
+    public class ItemInfoView : GameDataEntryBar
     {
         private SerializedProperty property;
         private readonly TextField textField;
@@ -53,7 +52,7 @@ namespace ElfSoft.InventorySystem.Editor
         public virtual void UpdateView()
         {
             var value = property.FindPropertyRelative(FieldName.name).stringValue;
-            Utils.SplitLocalText(value, out var tableName, out var entryKey);
+            LocalizationEx.SplitLocalText(value, out var tableName, out var entryKey);
             NameLabel.text = LocalizationEditorEx.GetStringTableEntryLocalizedValue(tableName, entryKey);
         }
 

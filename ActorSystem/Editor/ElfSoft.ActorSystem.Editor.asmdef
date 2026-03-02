@@ -1,0 +1,20 @@
+{
+    "name": "ElfSoft.ActorSystem.Editor",
+    "rootNamespace": "ElfSoft.ActorSystem.Editor",
+    "references": [
+        "GUID:58b29b86007e0174f9e1e9d6c52414e8",
+        "GUID:1a7cd63052288a945852bc3b4aa05ead",
+        "GUID:78fbf51d7bcd6484ea6606b2c2bb4c3d"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

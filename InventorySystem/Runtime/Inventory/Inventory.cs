@@ -6,11 +6,10 @@ using UnityEngine;
 namespace ElfSoft.InventorySystem
 {
     [Serializable]
-    public class Inventory<T> : IInventory where T : InventorySlot, new()
+    public class Inventory<T> where T : ItemSlot, new()
     {
         [SerializeField] private List<T> slots = new();
         public IReadOnlyList<T> Slots => slots;
-        IReadOnlyList<InventorySlot> IInventory.Slots => slots;
 
 
         /// <summary>
@@ -28,7 +27,7 @@ namespace ElfSoft.InventorySystem
                     if (toAdd <= 0) break;
                 }
             }
-            EventHub.SendEvent<InventoryEvent>(e => e.Init(this));
+            EventHub.SendEvent<InventoryChangedEventData<T>>(e => e.Init(this));
         }
 
         /// <summary>
@@ -50,7 +49,7 @@ namespace ElfSoft.InventorySystem
                     }
                 }
             }
-            EventHub.SendEvent<InventoryEvent>(e => e.Init(this));
+            EventHub.SendEvent<InventoryChangedEventData<T>>(e => e.Init(this));
         }
 
         /// <summary>
@@ -78,6 +77,18 @@ namespace ElfSoft.InventorySystem
             }
             return amount;
         }
-    }
 
+        /// <summary>
+        /// 查找非空栏位数量
+        /// </summary>
+        public int GetNonEmptySlotAmount()
+        {
+            int amount = 0;
+            foreach (var slot in slots)
+            {
+                if (slot.Item != null) amount++;
+            }
+            return amount;
+        }
+    }
 }
