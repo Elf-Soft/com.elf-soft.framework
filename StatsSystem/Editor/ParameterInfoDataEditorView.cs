@@ -10,13 +10,14 @@ using UnityEngine.UIElements;
 
 namespace ElfSoft.StatsSystem.Editor
 {
-    internal sealed class ParameterInfoDataEditorView : GameDataView<ParameterInfoData>
+    [GameDataEditorGenerator(typeof(ParameterInfoData), true)]
+    internal sealed class ParameterInfoDataView : GameDataView<ParameterInfoData>
     {
         public TablePanelController TableController { get; private set; }
         private static readonly string entries = "entries";
 
 
-        public ParameterInfoDataEditorView()
+        public ParameterInfoDataView()
         {
             TableController = new(this.Q<VisualElement>("left-panel"), nameof(ParameterInfo))
             {

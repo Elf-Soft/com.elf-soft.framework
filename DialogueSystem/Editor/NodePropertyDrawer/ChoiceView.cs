@@ -13,7 +13,7 @@ namespace ElfSoft.DialogueSystem.Editor
         public IntegerField NextField { get; private set; }
         public NodeChoice Node { get; internal set; }
         public Option Opt { get; internal set; }
-        public DialogueDataEditorWindowView EditorView { get; internal set; }
+        public DialogueDataView EditorView { get; internal set; }
 
 
         public ChoiceView()
@@ -74,7 +74,7 @@ namespace ElfSoft.DialogueSystem.Editor
             if (e.Args.choice == Opt && e.Sender != this) NextField.SetValueWithoutNotify(e.Args.choice.Next);
         }
 
-        public void Bind(DialogueDataEditorWindowView editorView, NodeChoice node, Option opt, int index)
+        public void Bind(DialogueDataView editorView, NodeChoice node, Option opt, int index)
         {
             EditorView = editorView;
             Node = node;

@@ -8,7 +8,7 @@ namespace ElfSoft.DialogueSystem.Editor
     {
         public IntegerField IdField { get; private set; }
         public Node Node { get; internal set; }
-        public DialogueDataEditorWindowView EditorView => userData as DialogueDataEditorWindowView;
+        public DialogueDataView EditorView => userData as DialogueDataView;
 
 
         public NodePropertyDrawer()

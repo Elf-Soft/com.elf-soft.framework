@@ -6,12 +6,13 @@ using UnityEngine.UIElements;
 
 namespace ElfSoft.ActorSystem.StateSystem.Editor
 {
-    public class StateDataEditorWindowView : GameDataView<StateData>
+    [GameDataEditorGenerator(typeof(StateData), true)]
+    public class StateDataView : GameDataView<StateData>
     {
         public TablePanelController TableController { get; private set; }
 
 
-        public StateDataEditorWindowView()
+        public StateDataView()
         {
             TableController = new(this.Q<VisualElement>("left-panel"), nameof(StateData))
             {

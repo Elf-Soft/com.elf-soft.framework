@@ -9,13 +9,13 @@ using UnityEngine.UIElements;
 
 namespace ElfSoft.InventorySystem.Editor
 {
-    public class ItemInfoView : GameDataEntryBar
+    public class ItemInfoBar : GameDataEntryBar
     {
         private SerializedProperty property;
         private readonly TextField textField;
 
 
-        public ItemInfoView()
+        public ItemInfoBar()
         {
             textField = new();
             textField.style.visibility = Visibility.Hidden;

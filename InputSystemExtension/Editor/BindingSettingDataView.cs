@@ -11,15 +11,15 @@ using UnityEngine.UIElements;
 
 namespace ElfSoft.InputSystemExtension.Editor
 {
-
-    public class BindingSettingDataEditorWindowView : GameDataView<BindingSettingData>
+    [GameDataEditorGenerator(typeof(BindingSettingData), true)]
+    public class BindingSettingDataView : GameDataView<BindingSettingData>
     {
         public TablePanelController DataController { get; private set; }
         public TablePanelController GroupController { get; private set; }
         private readonly SearchViewState searchViewState;
 
 
-        public BindingSettingDataEditorWindowView() : base("UI/UIDocument/ThreePanelTableView")
+        public BindingSettingDataView() : base("UI/UIDocument/ThreePanelTableView")
         {
             DataController = new(this.Q<VisualElement>("left-panel"), nameof(BindingSettingGroup))
             {

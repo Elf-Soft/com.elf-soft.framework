@@ -2,6 +2,7 @@ using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
+using Status = UnityEngine.UIElements.DropdownMenuAction.Status;
 
 namespace ElfSoft.Framework.Editor.UIElements
 {
@@ -63,9 +64,9 @@ namespace ElfSoft.Framework.Editor.UIElements
             So?.Update();
         }
 
-        public DropdownMenuAction.Status CheckAsset(DropdownMenuAction _)
+        public Status CheckAsset(DropdownMenuAction e)
         {
-            return Asset != null ? DropdownMenuAction.Status.Normal : DropdownMenuAction.Status.Disabled;
+            return Asset != null ? Status.Normal : Status.Disabled;
         }
 
     }

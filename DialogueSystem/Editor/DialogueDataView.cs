@@ -4,13 +4,14 @@ using UnityEngine.UIElements;
 
 namespace ElfSoft.DialogueSystem.Editor
 {
-    public class DialogueDataEditorWindowView : GameDataView<DialogueData>
+    [GameDataEditorGenerator(typeof(DialogueData), true)]
+    public class DialogueDataView : GameDataView<DialogueData>
     {
         public DialogueGraphView GraphView { get; private set; }
         public VisualElement PropertiesPanel { get; private set; }
 
 
-        public DialogueDataEditorWindowView()
+        public DialogueDataView()
         {
             var right = this.Q<VisualElement>("right-panel");
             right.Q<VisualElement>("header").style.display = DisplayStyle.None;

@@ -6,21 +6,22 @@ using UnityEngine.UIElements;
 
 namespace ElfSoft.InventorySystem.Editor
 {
-    public class ItemInfoDataEditorWindowView : GameDataView<ItemInfoData>
+    [GameDataEditorGenerator(typeof(ItemInfoData), true)]
+    public class ItemInfoDataView : GameDataView<ItemInfoData>
     {
         public TablePanelController TableController { get; private set; }
         private static readonly string entries = "entries";
 
 
-        public ItemInfoDataEditorWindowView()
+        public ItemInfoDataView()
         {
             TableController = new(this.Q<VisualElement>("left-panel"), nameof(ItemInfoData))
             {
                 GetItemSource = () => Asset != null ? Asset.Entries as IList : null,
-                MakeItem = () => new ItemInfoView(),
+                MakeItem = () => new ItemInfoBar(),
                 BindItem = (elem, index) =>
                 {
-                    var e = elem as ItemInfoView;
+                    var e = elem as ItemInfoBar;
                     var property = So.FindProperty($"{entries}.Array.data[{index}]");
                     e.BindProperty(property);
                 },

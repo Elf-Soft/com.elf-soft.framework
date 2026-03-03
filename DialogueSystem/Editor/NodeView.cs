@@ -12,7 +12,7 @@ namespace ElfSoft.DialogueSystem.Editor
         private readonly Label idLabel;
         public Port Input { get; private set; }
         public Node Node { get; private set; }
-        public DialogueDataEditorWindowView EditorView => userData as DialogueDataEditorWindowView;
+        public DialogueDataView EditorView => userData as DialogueDataView;
 
 
         public NodeView() : base(AssetDatabase.GetAssetPath(Resources.Load<VisualTreeAsset>("UI/UIDocument/NodeView")))

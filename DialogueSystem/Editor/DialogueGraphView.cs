@@ -13,11 +13,11 @@ namespace ElfSoft.DialogueSystem.Editor
         private Vector2 pointerPosition;
         private readonly HashSet<GraphElement> copyCache = new();
         private readonly List<(string actionName, Action<DropdownMenuAction> action)> menuActionCaches = new();
-        public DialogueDataEditorWindowView EditorView { get; private set; }
+        public DialogueDataView EditorView { get; private set; }
         public int SelectedIndex { get; private set; } = -1;
 
 
-        public DialogueGraphView(DialogueDataEditorWindowView root)
+        public DialogueGraphView(DialogueDataView root)
         {
             EditorView = root;
             //ÃÌº”Õ¯∏Ò ”Õº
